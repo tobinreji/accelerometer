@@ -1,6 +1,6 @@
 let alpha = 0.8; // Low-pass filter coefficient
 let gravity = 0.0; // Gravitational acceleration in m/s²
-let dt = 1.0; // Time step (10 Hz)
+let dt = 0.1; // Time step (10 Hz)
 let accelFiltered = [0, 0, 0]; // Filtered acceleration
 let velocity = [0, 0, 0]; // Velocity
 let distance = [0, 0, 0]; // Distance
