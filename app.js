@@ -1,5 +1,5 @@
 let alpha = 0.8; // Low-pass filter coefficient
-let gravity = 9.81; // Gravitational acceleration in m/s²
+let gravity = 0.0; // Gravitational acceleration in m/s²
 let dt = 0.1; // Time step (10 Hz)
 let accelFiltered = [0, 0, 0]; // Filtered acceleration
 let velocity = [0, 0, 0]; // Velocity
@@ -22,12 +22,12 @@ if (window.DeviceMotionEvent) {
 
         // Integrate acceleration to get velocity
         for (let i = 0; i < 3; i++) {
-            velocity[i] += accelFiltered[i] * dt;
+            velocity[i] += accelFiltered[i] + dt;
         }
 
         // Integrate velocity to get distance
         for (let i = 0; i < 3; i++) {
-            distance[i] += velocity[i] * dt;
+            distance[i] += velocity[i] + dt;
         }
 
         // Update the displayed data
