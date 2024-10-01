@@ -12,13 +12,6 @@ if (window.DeviceMotionEvent) {
         // Get acceleration values
         const acceleration = event.accelerationIncludingGravity;
 
-        // Apply low-pass filter to remove noise
-        accelFiltered[0] = alpha * accelFiltered[0] + (1 - alpha) * acceleration.x;
-        accelFiltered[1] = alpha * accelFiltered[1] + (1 - alpha) * acceleration.y;
-        accelFiltered[2] = alpha * accelFiltered[2] + (1 - alpha) * acceleration.z;
-
-        // Correct for gravity (assuming Z is vertical)
-        accelFiltered[2] -= gravity;
 
         // Integrate acceleration to get velocity
         for (let i = 0; i < 3; i++) {
